@@ -75,6 +75,15 @@ parameter "paramater.review.environement" {
     label = "Review Environment"
 }
 
+parameter "paramater.flyway.pat" {
+    display_settings = {
+        Octopus.ControlType = "Sensitive"
+    }
+    help_text = ""
+    is_optional = true
+    label = "Flyway PAT"
+}
+
 step "sql-create-database-if-not-exists" {
     name = "SQL - Create Database If Not Exists"
 
@@ -323,6 +332,7 @@ step "flyway-database-migrations-dryrun" {
             Flyway.Database.User = "#{parameter.database.user}"
             Flyway.Database.User.Password = "#{parameter.database.password}"
             Flyway.Package.Value = "parameter.database.package"
+            Flyway.PersonalAccessToken = "#{paramater.flyway.pat}"
             Flyway.Target.Url = "jdbc:sqlserver://#{parameter.database.host}:1433;databaseName=#{parameter.database.name};encrypt=false;trustServerCertificate=true;"
             Octopus.Action.EnabledFeatures = "Octopus.Features.SelectPowerShellEditionForWindows"
             Octopus.Action.PowerShell.Edition = "Core"

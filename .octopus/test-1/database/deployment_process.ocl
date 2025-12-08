@@ -36,7 +36,7 @@ process_template "run-a-process-template" {
         value = "filesystem:#{Octopus.Action.Package[Flyway.Package.Value].ExtractedPath}/src/Database"
     }
 
-    parameter "paramater.review.environemnt" {
+    parameter "paramater.review.environement" {
         value = "Environments-23"
     }
 }

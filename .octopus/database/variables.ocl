@@ -1,0 +1,7 @@
+variable "AWS DEMO ACCOUNT" {
+    value "AWS.Account" {}
+
+    value "aws-demo-account" {
+        type = "AmazonWebServicesAccount"
+    }
+}
